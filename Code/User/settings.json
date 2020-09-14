@@ -1,0 +1,25 @@
+{
+    // Vim
+    "vim.easymotion": true,
+    "vim.vimrc.enable": true,
+    "vim.useCtrlKeys": false,
+
+    // Actions
+    "editor.codeActionsOnSave": null,
+    "files.insertFinalNewline": true,
+    "git.autofetch": true,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+
+    // Aesthetics
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "'InconsolataGo Nerd Font','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.cursorBlinking": "phase",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 18,
+    "editor.minimap.enabled": false,
+    "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
+    "window.menuBarVisibility": "toggle",
+    "workbench.settings.editor": "json",
+}
