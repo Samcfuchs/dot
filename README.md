@@ -12,19 +12,31 @@
 - `pip install neovim` to fix YCM completion
 
 # GNOME
+
 - [NVidia Monitor](https://extensions.gnome.org/extension/1320/nvidia-gpu-stats-tool/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 - Change alt+tab to switch windows
 
 # NVidia CUDA
-- CUDA 10.1 (should be pre installed)
-- CUDNN 7 (not higher)
-  - [fix the symbolic links](https://stackoverflow.com/questions/49656725/importerror-libcudnn-so-7-cannot-open-shared-object-file-no-such-file-or-dire/61563579#61563579)
 
-Ok this can be a real headache but it worked for me after running the [tensorflow GPU support script](https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_101) *and* [the system76 libraries](http://support.system76.com/articles/cuda/), in that order. It's possible that only the system76 libraries are necessary to make it work. Do this first in case you have to nuke the system.
+- CUDA 10.1 (should be pre installed)
+- CUDNN 7.6 (not higher)
+
+[Use the system76 libraries](http://support.system76.com/articles/cuda/) and
+make sure you install the 10.1 versions. System76 installs these into
+`/usr/lib/cuda` but tensorflow still finds them I think.
+
+```
+sudo apt install system76-cuda-10.1
+sudo apt install system76-cudnn-10.1
+```
+
+[You might need to fix the symbolic links](https://stackoverflow.com/questions/49656725/importerror-libcudnn-so-7-cannot-open-shared-object-file-no-such-file-or-dire/61563579#61563579)
 
 # Python
 - virtualenvwrapper
-- tensorflow-gpu
+  - this one can generate some problems
+- tensorflow
 - jupyter
 - numpy
 - sklearn
