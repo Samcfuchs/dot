@@ -1,0 +1,6 @@
+tree
+mlocate
+cmake
+python3-dev
+neofetch
+neovim
