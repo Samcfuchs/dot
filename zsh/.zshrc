@@ -14,11 +14,28 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source $HOME/.local/bin/virtualenvwrapper.sh
 
 # Aliases
-alias workoff=deactivate
 take() {
   mkdir -p $1
   cd $1
 }
+
+alias workoff=deactivate
+alias ls="ls --color=auto"
+alias x=exit
+alias la="ls -lA --color=auto"
+alias ..="cd .."
+alias /="cd /"
+
+# Autocomplete vim keys
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
 
 # Thefuck
 eval $(thefuck --alias)
