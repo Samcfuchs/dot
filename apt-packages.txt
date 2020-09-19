@@ -1,3 +1,5 @@
+alacritty
+zsh
 tree
 mlocate
 cmake
