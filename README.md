@@ -45,6 +45,9 @@ sudo apt install system76-cudnn-10.1
 
 # VS Code
 - vscodevim
+- Dracula
 
 # Other Apps
 - Spotify
+- Slack
+- Cornell VPN
