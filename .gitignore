@@ -1,0 +1,8 @@
+Code/*
+!Code/User/settings.json
+!Code/User/snippets
+
+zsh/.zcompdump
+
+nvim/
+!nvim/init.vim
