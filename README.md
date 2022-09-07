@@ -1,3 +1,5 @@
+Most of these folders should just go directly into $HOME/.config, or $XDG_CONFIG_HOME
+
 # Alacritty
 - [Inconsolata Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/InconsolataGo/Regular/complete/InconsolataGo%20Nerd%20Font%20Complete.ttf)
 
@@ -34,9 +36,11 @@ sudo apt install system76-cudnn-10.1
 [You might need to fix the symbolic links](https://stackoverflow.com/questions/49656725/importerror-libcudnn-so-7-cannot-open-shared-object-file-no-such-file-or-dire/61563579#61563579)
 
 # Python
-- virtualenvwrapper
-  - this one can generate some problems
+
+Use miniconda to avoid bloat but for easy environment management
+
 - tensorflow
+- pytorch
 - jupyter
 - numpy
 - sklearn
@@ -48,6 +52,17 @@ sudo apt install system76-cudnn-10.1
 - Dracula
 
 # Other Apps
+
+## Real apps
+
+- Unity
+- Obsidian
+
+## Apps that are just electron wrappers
+
+Install these as necessary because you can use them exactly the same in the browser.
+
 - Spotify
+- Discord
 - Slack
-- Cornell VPN
+- Todoist
