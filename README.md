@@ -37,7 +37,7 @@ sudo apt install system76-cudnn-10.1
 
 # Python
 
-Use miniconda to avoid bloat but for easy environment management
+Use [miniconda](https://docs.anaconda.com/miniconda/) to avoid bloat but for easy environment management
 
 - tensorflow
 - pytorch
