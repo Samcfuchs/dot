@@ -4,20 +4,20 @@ call plug#begin()
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'sheerun/vim-polyglot'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'vim-syntastic/syntastic'
-Plug 'chrisbra/sudoedit.vim'
-Plug 'JuliaEditorSupport/julia-vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'mattn/emmet-vim'
+"Plug 'tpope/vim-fugitive'
+"Plug 'sheerun/vim-polyglot'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'tpope/vim-surround'
+"Plug 'ycm-core/YouCompleteMe'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'chrisbra/sudoedit.vim'
+"Plug 'JuliaEditorSupport/julia-vim'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'mattn/emmet-vim'
 
 call plug#end()
 
-map <Leader> <Plug>(easymotion-prefix)
+"map <Leader> <Plug>(easymotion-prefix)
 
 " Actual vim stuff
 imap jj <esc>
