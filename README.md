@@ -1,25 +1,55 @@
-Most of these folders should just go directly into $HOME/.config, or $XDG_CONFIG_HOME
+I generally stick to GNOME Debian forks. Currently I'm partial to Linux Mint.
+This deprecates a lot of modifications I used to do, e.g. GNOME shell
+extensions. Most of these folders should just go directly into $HOME/.config, or
+$XDG_CONFIG_HOME.
 
-# Alacritty
-- [Inconsolata Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/InconsolataGo/Regular/complete/InconsolataGo%20Nerd%20Font%20Complete.ttf)
-
-# zsh
-- [thefuck](https://github.com/nvbn/thefuck#installation)
-- [PowerLevel10k](https://github.com/romkatv/powerlevel10k#manual)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#in-your-zshrc)
-
-# nvim
+### nvim
 - [vim-plug](https://github.com/junegunn/vim-plug#unix-linux)
 - init.vim
 - `pip install neovim` to fix YCM completion
 
-# GNOME
+### VS Code
+- vscodevim
+- Dracula
+- Jupyter
+- Pylance
+- Python
+- Rewrap
+- Docker
+
+### Real apps
+
+- Unity
+- Obsidian
+
+## Apps that are just electron wrappers
+
+Install these as necessary because you can use them exactly the same in the browser.
+
+- Spotify
+- Discord
+- Slack
+- Todoist
+
+## Archival
+
+I don't generally use these tools anymore:
+
+### Alacritty
+- [Inconsolata Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/InconsolataGo/Regular/complete/InconsolataGo%20Nerd%20Font%20Complete.ttf)
+
+### zsh
+- [thefuck](https://github.com/nvbn/thefuck#installation)
+- [PowerLevel10k](https://github.com/romkatv/powerlevel10k#manual)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#in-your-zshrc)
+
+### GNOME
 
 - [NVidia Monitor](https://extensions.gnome.org/extension/1320/nvidia-gpu-stats-tool/)
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 - Change alt+tab to switch windows
 
-# NVidia CUDA
+### NVidia CUDA
 
 - CUDA 10.1 (should be pre installed)
 - CUDNN 7.6 (not higher)
@@ -47,22 +77,4 @@ Use [miniconda](https://docs.anaconda.com/miniconda/) to avoid bloat but for eas
 - matplotlib
 - seaborn
 
-# VS Code
-- vscodevim
-- Dracula
-
 # Other Apps
-
-## Real apps
-
-- Unity
-- Obsidian
-
-## Apps that are just electron wrappers
-
-Install these as necessary because you can use them exactly the same in the browser.
-
-- Spotify
-- Discord
-- Slack
-- Todoist

@@ -1,15 +1,10 @@
-alacritty
-zsh
 tree
-mlocate
 cmake
 python3-dev
 neofetch
 neovim
 htop
 nvtop
-slack-desktop
 julia
-flameshot
 code
-cmake
+openvpn

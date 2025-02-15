@@ -10,20 +10,25 @@
     "git.autofetch": true,
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
+    "workbench.settings.editor": "json",
+
+    // Python
+    "python.dataScience.interactiveWindowMode": "perFile",
+    "python.dataScience.alwaysTrustNotebooks": true,
+    "python.insidersChannel": "weekly",
+
+    
+    // Aesthetics
+    "workbench.colorTheme": "Dracula Theme",
+    "window.menuBarVisibility": "toggle",
+    "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
+    "editor.minimap.enabled": false,
     "workbench.iconTheme": "material-icon-theme",
     "editor.fontFamily": "'InconsolataGo Nerd Font','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.cursorBlinking": "phase",
     "editor.fontSize": 16,
     "editor.lineHeight": 18,
-    "editor.minimap.enabled": false,
-    "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
-    "window.menuBarVisibility": "toggle",
-    "workbench.settings.editor": "json",
-    "workbench.colorTheme": "Dracula",
-    "python.dataScience.interactiveWindowMode": "perFile",
-    "python.dataScience.alwaysTrustNotebooks": true,
-    "editor.rulers": [
-        80
-    ],
-    "python.insidersChannel": "weekly",
+
+    "editor.rulers": [ 80 ],
+
 }
