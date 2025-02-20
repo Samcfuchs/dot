@@ -7,6 +7,23 @@ $XDG_CONFIG_HOME.
 - [vim-plug](https://github.com/junegunn/vim-plug#unix-linux)
 - init.vim
 - `pip install neovim` to fix YCM completion
+Run below:
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+echo source ~/dot/nvim/init.vim > .config/nvim/init.vim
+```
+Then open vim and run `:PlugInstall`
+
+### git
+Add the following configuration:
+
+```
+# ~/.gitconfig
+[include]
+    path = ~/dot/git/config
+```
 
 ### VS Code
 - vscodevim
