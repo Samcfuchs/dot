@@ -31,6 +31,12 @@ Install these as necessary because you can use them exactly the same in the brow
 - Slack
 - Todoist
 
+## Wake-on-LAN
+```
+nmcli connection show
+nmcli connection modify "Wired connection 1" 802-3-ethernet.wake-on-lan magic
+```
+
 ## Archival
 
 I don't generally use these tools anymore:

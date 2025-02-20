@@ -1,0 +1,9 @@
+neovim
+python3-virtualenv
+openssh-server
+git
+
+# GUI
+audacity
+darktable
+gimp

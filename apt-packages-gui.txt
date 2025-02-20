@@ -2,3 +2,6 @@ vlc
 audacity
 darktable
 gimp
+gparted
+gnome-font-viewer
+
