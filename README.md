@@ -1,36 +1,10 @@
 # Dotfiles
 I generally stick to GNOME Debian forks. Currently I'm partial to Linux Mint.
 This deprecates a lot of modifications I used to do, e.g. GNOME shell
-extensions. Most of these folders should just go directly into $HOME/.config, or
-$XDG_CONFIG_HOME.
+extensions. I no longer move all the files into `~/.config`, I prefer to add
+links to these files in the native configurations.
 
-### nvim
-
-- [vim-plug](https://github.com/junegunn/vim-plug#unix-linux)
-- init.vim
-- `pip install neovim` to fix YCM completion
-
-Run below:
-
-```bash
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-echo "source ~/dot/nvim/init.vim" > .config/nvim/init.vim
-```
-
-Then open vim and run `:PlugInstall`
-
-### git
-Add the following configuration:
-
-```ini
-# ~/.gitconfig
-[include]
-    path = ~/dot/git/config
-```
-
-### Apt packages
+## Apt packages
 
 Install system packages with 
 
@@ -66,24 +40,94 @@ Before installing:
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-### Real apps
+## Configuration
 
-These can't be installed through a package manager, I think.
+### nvim
+
+I use [vim-plug](https://github.com/junegunn/vim-plug#unix-linux) to load
+extensions. Create a link in .config/nvim/init.vim to load the file in this
+repo. Run `pip install neovim` to fix YCM completion.
+
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+mkdir .config/nvim
+echo "source ~/dot/nvim/init.vim" > .config/nvim/init.vim
+```
+
+Then open vim and run `:PlugInstall`
+
+### git
+Add the following configuration to `~/.gitconfig`:
+
+```ini
+[include]
+    path = ~/dot/git/config
+```
+
+### Cinnamon
+
+Install "Command Launcher" and then import the file
+[command.json](cinnamon/command.json) which adds an icon to the panel which
+rotates the secondary monitor. Must use proprietary Nvidia drivers for this to
+work. Add further extensions to taste. The following keyboard commands are
+useful:
+
+- Super-Tab: Show the window selection screen
+- Super+R: Run dialog
+- Super+H: Switch to left workspace
+- Super+L: Switch to right workspace
+- Super+T: Launch terminal
+- Super+W: Launch web browser
+- Super+.: Toggle always on top
+- Super+F11: Toggle fullscreen state
+
+### VS Code
+The [settings.json](Code/User/settings.json) goes in `~/.config/Code/User/`.
+There's no way to reference this file from the default. You could maybe symlink
+it if you really wanted to. These are all necessary extensions, but there are
+more, too.
+
+- vscodevim
+- Dracula
+- Rewrap
+- Remote - SSH
+- Remote Explorer
+
+The rest are basically project-specific.
+
+## Llama
+
+Setting up a local llama is actually very easy using
+[open-webui](https://github.com/open-webui/open-webui). There's a lot of
+configuration to do once the server is running, however.
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+
+python3 -m venv llama-env
+source ./llama-env/bin/activate
+pip install open-webui
+open-webui serve
+```
+
+Serves at <http://localhost:8080>. The admin stuff is only a little bit more
+tricky. I use cloudflared to set up a network tunnel to my PC, which is hosted
+at <http://ai.samcfuchs.com>.
+
+## Real apps
+
+These can't be installed through a package manager, I think. Some are bundled
+with operating systems by default. I generally try to avoid Flatpaks in order to
+preserve storage, but some cannot be avoided.
 
 - Unity
 - Obsidian
 - AppFlowy
 - VS Code
-
-### VS Code
-These are all necessary extensions, but there are more, too.
-- vscodevim
-- Dracula
-- Jupyter
-- Pylance
-- Python
-- Rewrap
-- Docker
+- LibreOffice
+- Firefox
 
 ## Apps that are just electron wrappers
 
