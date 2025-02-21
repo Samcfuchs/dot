@@ -46,3 +46,4 @@ bindkey -M menuselect 'l' vi-forward-char
 [[ ! -f ~/dot/zsh/.p10k.zsh ]] || source ~/dot/zsh/.p10k.zsh
 
 source ~/dot/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dot/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
