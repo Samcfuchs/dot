@@ -6,7 +6,7 @@ links to these files in the native configurations.
 
 ## Apt packages
 
-Install system packages with 
+Install system packages with
 
 ```sh
 sudo apt install -y $(cat apt-packages.txt)
@@ -41,6 +41,23 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ```
 
 ## Configuration
+
+### bash
+
+Include the local bashrc by running the following:
+
+```bash
+echo "source ~/dot/.bashrc" > ~/.bash_aliases
+```
+
+### zsh
+
+If you want to use it:
+
+```bash
+git submodule update --init
+echo "source ~/dot/zsh/.zshrc" > ~/.zshrc
+```
 
 ### nvim
 

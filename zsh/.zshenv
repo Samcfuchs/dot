@@ -5,7 +5,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export nvimrc="$XDG_CONFIG_HOME/nvim/init.vim"
 
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZDOTDIR="$HOME/dot/zsh"
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
