@@ -1,7 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
     name = Sam Fuchs
     email = samcfuchs@gmail.com
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
+[core]
+    editor = nvim
