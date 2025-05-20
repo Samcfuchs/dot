@@ -25,7 +25,8 @@ alias ls="ls --color=auto"
 alias x=exit
 alias la="ls -lA --color=auto"
 alias ..="cd .."
-alias /="cd /"
+#alias /="cd /"
+alias vim=nvim
 
 # Autocomplete vim keys
 autoload -U compinit

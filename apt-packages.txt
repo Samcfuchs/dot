@@ -3,6 +3,7 @@ cmake
 neofetch
 neovim
 htop
+btop
 nvtop
 julia
 zsh
@@ -14,3 +15,6 @@ thefuck
 python3-dev
 python3-venv
 git
+
+pass
+
