@@ -21,6 +21,7 @@ call plug#end()
 
 " Actual vim stuff
 imap jj <esc>
+imap jk <esc>
 map <leader>o o<esc>
 map <leader>O O<esc>
 
@@ -73,3 +74,7 @@ set listchars=tab:>-,trail:·,precedes:«,extends:»,eol:¬
 " Airline customization
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
+

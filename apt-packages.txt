@@ -17,4 +17,5 @@ python3-venv
 git
 
 pass
+playerctl
 
