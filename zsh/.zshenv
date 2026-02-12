@@ -21,4 +21,3 @@ export PROJECT_HOME=$HOME/Documents
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source $HOME/.local/bin/virtualenvwrapper.sh
 
-export PATH="/usr/local/cuda/bin:$PATH"

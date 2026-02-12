@@ -23,6 +23,7 @@ if [ -z "$FBTERM" ] && [ "$(tty)" = "/dev/tty1" ]; then
     #export TERM=fbterm
 fi
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 #eval $(thefuck --alias fuck)
 
+#export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"

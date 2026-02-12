@@ -4,4 +4,7 @@ darktable
 gimp
 gparted
 gnome-font-viewer
+rofi
+polybar
+i3
 

@@ -25,8 +25,9 @@ alias ls="ls --color=auto"
 alias x=exit
 alias la="ls -lA --color=auto"
 alias ..="cd .."
-#alias /="cd /"
 alias vim=nvim
+alias /="cd /"
+alias epoch="date -u +%s"
 
 # Autocomplete vim keys
 autoload -U compinit
@@ -48,3 +49,6 @@ bindkey -M menuselect 'l' vi-forward-char
 
 source ~/dot/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dot/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export PATH="/usr/local/cuda/bin:$PATH"
+export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
