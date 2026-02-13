@@ -13,12 +13,15 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Documents
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 #source $HOME/.local/bin/virtualenvwrapper.sh
+export FZF_DEFAULT_OPTS="--height=20 --border --layout=reverse"
 
 # Aliases
 take() {
   mkdir -p $1
   cd $1
 }
+
+alias nvim="~/Apps/nvim-linux-x86_64.appimage"
 
 alias workoff=deactivate
 alias ls="ls --color=auto"
@@ -28,6 +31,8 @@ alias ..="cd .."
 alias vim=nvim
 alias /="cd /"
 alias epoch="date -u +%s"
+alias fzf='fzf --border-label="fzf $(pwd)"'
+alias vf="vim \$(fzf)"
 
 # Autocomplete vim keys
 autoload -U compinit
