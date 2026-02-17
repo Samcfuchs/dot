@@ -4,7 +4,9 @@ configuration {
     show-icons:      true;
     display-drun:    "";
     disable-history: false;
-    icon-theme: "Mint-Y-Sand";
+    //icon-theme: "Mint-Y-Sand";
+    icon-theme: "ePapirus";
+    //icon-theme: "ubuntu-mono-dark";
 }
 
 * {
@@ -57,7 +59,7 @@ configuration {
     padding: 10px ;
     border-radius: 0;
 }
-#element-icon { size: 3.00ch; }
+#element-icon { size: 5.00ch; }
 #element-text { vertical-align: 0.5; }
 #element.normal.normal {
     background-color: @background-color;

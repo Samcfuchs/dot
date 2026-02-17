@@ -1,0 +1,7 @@
+[Unit]
+Description=Hourly desktop chime notification
+
+[Service]
+Type=oneshot
+ExecStartPre=paplay /usr/share/sounds/LinuxMint/stereo/phone-incoming-call.ogg
+ExecStart=/usr/bin/notify-send -i clock -t 0 -u critical "Hourly chime" "It's the top of the hour"

@@ -61,3 +61,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="/usr/local/cuda/bin:$PATH"
 export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
+export PATH="$HOME/dot/bin:$PATH"
