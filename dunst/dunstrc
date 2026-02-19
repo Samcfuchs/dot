@@ -201,7 +201,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Yaru/256x256/status/:/usr/share/icons/Yaru/16x16/devices/
+    icon_path = /usr/share/icons/Yaru/256x256/status/:/usr/share/icons/Yaru/16x16/devices/:/usr/share/icons/Yaru/256x256/apps/
 
     ### History ###
 

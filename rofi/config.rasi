@@ -7,6 +7,7 @@ configuration {
     //icon-theme: "Mint-Y-Sand";
     icon-theme: "ePapirus";
     //icon-theme: "ubuntu-mono-dark";
+    run-shell-command: "i3-sensible-terminal {cmd}";
 }
 
 * {

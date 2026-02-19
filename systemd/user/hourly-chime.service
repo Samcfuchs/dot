@@ -3,5 +3,5 @@ Description=Hourly desktop chime notification
 
 [Service]
 Type=oneshot
-ExecStartPre=paplay /usr/share/sounds/LinuxMint/stereo/phone-incoming-call.ogg
-ExecStart=/usr/bin/notify-send -i clock -t 0 -u critical "Hourly chime" "It's the top of the hour"
+ExecStartPre=paplay --volume=40000 /usr/share/sounds/LinuxMint/stereo/phone-incoming-call.ogg
+ExecStart=/usr/bin/notify-send -i '/usr/share/icons/Yaru/256x256/apps/clock-app.png' -t 0 -u low "Hourly chime" "It's the top of the hour"
