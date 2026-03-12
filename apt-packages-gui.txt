@@ -1,15 +1,18 @@
 gnome-font-viewer
 firefox
+retroarch
 
 thunderbird
 
 gparted
 baobab
+nemo
 
 mixxx
 surge-xt
 vlc
 audacity
+
 darktable
 gimp
 
@@ -18,3 +21,10 @@ code
 rofi
 polybar
 i3
+dunst
+feh
+
+spotify-client
+diodon
+
+yaru-theme-icon

@@ -42,6 +42,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ## Configuration
 
+Scripts are stored in [bin](./bin), including [link-config](./bin/link-config) which creates
+symbolic links to some of these config files in `~/.config`.
+
 ### bash
 
 Include the local bashrc by running the following:
@@ -56,26 +59,19 @@ If you want to use it:
 
 ```bash
 git submodule update --init
-echo "source ~/dot/zsh/.zshrc" > ~/.zshrc
+chsh -s $(which zsh)
 ```
 
 ### nvim
 
-I use [vim-plug](https://github.com/junegunn/vim-plug#unix-linux) to load
-extensions. Create a link in .config/nvim/init.vim to load the file in this
-repo. Run `pip install neovim` to fix YCM completion.
-
-```bash
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-mkdir .config/nvim
-echo "source ~/dot/nvim/init.vim" > .config/nvim/init.vim
-```
-
-Then open vim and run `:PlugInstall`
+I've switched from vim-plug to [lazy.nvim](https://lazy.folke.io/) although I've
+not fallen in love with it yet. Starting nvim and then typing `:Lazy` should
+open the plugin manager though. The version packaged for ubuntu falls behind
+sometimes, which can break autocomplete plugins. If you can't get the package
+you want via your package manager, I recommend just installing the AppImage.
 
 ### git
+
 Add the following configuration to `~/.gitconfig`:
 
 ```ini
@@ -111,29 +107,38 @@ more, too.
 - Rewrap
 - Remote - SSH
 - Remote Explorer
+- Banner Comments+
 
-The rest are basically project-specific.
+These are more project-specific:
+
+- Pylance
+- Continue
+- Debugger for firefox/chrome
+- Docker
+- Jupyter
+- Python
+- vscode-pdf
 
 ## Llama
 
-Setting up a local llama is actually very easy using
-[open-webui](https://github.com/open-webui/open-webui). There's a lot of
-configuration to do once the server is running, however.
+Setting up a local llama is actually very easy using [ollama](https://ollama.com).
+I access my local models through an [open-webui](https://github.com/open-webui/open-webui)
+running in a docker container on my home server which accesses the models
+running on my PC.
 
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 
 python3 -m venv llama-env
 source ./llama-env/bin/activate
-pip install open-webui
-open-webui serve
+ollama serve
 ```
 
-Serves at <http://localhost:8080>. The admin stuff is only a little bit more
-tricky. I use cloudflared to set up a network tunnel to my PC, which is hosted
-at <http://ai.samcfuchs.com>.
+Serves at <http://localhost:11434>. This is one of the few web services I actually run
+on my PC rather than the server. When you log into your hosted open-webui, give it the IP
+of this service to make requests to the models.
 
-## Real apps
+## Unpackaged apps
 
 These can't be installed through a package manager, I think. Some are bundled
 with operating systems by default. I generally try to avoid Flatpaks in order to
@@ -142,9 +147,8 @@ preserve storage, but some cannot be avoided.
 - Unity
 - Obsidian
 - AppFlowy
-- VS Code
 - LibreOffice
-- Firefox
+- Bitwig Studio
 
 ## Apps that are just electron wrappers
 
@@ -153,7 +157,6 @@ Install these as necessary because you can use them exactly the same in the brow
 - Spotify
 - Discord
 - Slack
-- Todoist
 
 ## Wake-on-LAN
 
@@ -165,9 +168,39 @@ nmcli connection show
 nmcli connection modify "Wired connection 1" 802-3-ethernet.wake-on-lan magic
 ```
 
+## i3-wm
+
+i3 is a window manager with tiling functionality that I often find more appealing
+than Cinnamon's. It requires some configuration to be pleasant to use. I use the
+following packages:
+
+- rofi
+- polybar
+- dunst
+
+Fortunately these are very easy to set up. [link-config](./bin/link-config) will
+set up the config files. In most display managers it is straightforward to
+launch these alongside a more featured DE, such as Cinnamon or KDE.
+
 ## Archival
 
 I don't generally use these tools anymore:
+
+### nvim (old config)
+
+I use [vim-plug](https://github.com/junegunn/vim-plug#unix-linux) to load
+extensions. Create a link in .config/nvim/init.vim to load the file in this
+repo. Run `pip install neovim` to fix YCM completion.
+
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+mkdir .config/nvim
+echo "source ~/dot/nvim/init.vim" > .config/nvim/init.vim
+```
+
+Then open vim and run `:PlugInstall`
 
 ### Alacritty
 - [Inconsolata Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/InconsolataGo/Regular/complete/InconsolataGo%20Nerd%20Font%20Complete.ttf)

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo modprobe snd-virmidi enable=1 midi_devs=1

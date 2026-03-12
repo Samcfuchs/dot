@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ -z "$ROFI_RETV" ]; then
+    echo "enter command..."
+    exit
+fi
+
+if [ "$ROFI_RETV" -eq 1 ]; then
+    bash -c "$1" 2>&1
+fi

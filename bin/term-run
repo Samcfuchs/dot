@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+cmd="$*"
+
+i3-msg 'exec --no-startup-id gnome-terminal -- bash -c "
+$cmd;
+status=\$?;
+if [ \$status -ne 0 ]; then
+    echo;
+    echo \"exit code: \$status\";
+    read -n 1 -s -r -p \"press any key to close\";
+fi
+exit
+"'
