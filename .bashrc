@@ -4,6 +4,8 @@ alias la="ls -la"
 MYVIMRC=~/dot/nvim/init.vim
 alias vim=nvim
 alias ..="cd .."
+alias dockerps="docker ps --format 'table {{truncate .Names 100}}\t{{.Status}}'"
+alias dcu="docker compose up --force-recreate --build -d"
 #alias /="cd /"
 
 take() {
