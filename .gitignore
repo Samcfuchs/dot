@@ -6,3 +6,5 @@ zsh/.zcompdump
 
 nvim/
 !nvim/init.vim
+
+systemd/**/*.wants
