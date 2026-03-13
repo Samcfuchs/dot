@@ -6,38 +6,47 @@ configuration {
     disable-history: false;
     //icon-theme: "Mint-Y-Sand";
     icon-theme: "ePapirus";
+    //icon-theme: "Dracula";
     //icon-theme: "ubuntu-mono-dark";
     run-shell-command: "i3-sensible-terminal {cmd}";
 }
 
 * {
+    purple: #bd93f9;
+    cline: #44475a;
+    pink: #ff79c6;
+    bg: #282a36ee;
+    bg-solid: #282a36;
+    fg: #f8f8f2;
+    transparent: #00000000;
+    test: #99000033;
+
     font: "Iosevka NF 12";
-    foreground: #f8f8f2;
-    background-color: #282a36;
-    active-background: #6272a4;
-    urgent-background: #ff5555;
-    urgent-foreground: #282a36;
+    foreground:           @fg;
+    //background-color:     #282a3644;
+    active-background:    #6272a4;
+    urgent-background:    #ff5555;
+    //urgent-foreground:    #282a36;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
     separatorcolor: @active-background;
     bordercolor: @active-background;
 
-    purple: #bd93f9;
-    cline: #44475a;
-    pink: #ff79c6;
 }
 
 #window {
-    background-color: @background-color;
+    background-color: @bg;
     border:           2;
     border-radius:    2;
     border-color:     @bordercolor;
     padding:          20;
+    width: 600px;
 }
 #mainbox {
     border:  0;
     padding: 0;
+    background-color: @transparent;
 }
 #message {
     border:       0px;
@@ -54,17 +63,25 @@ configuration {
     spacing:      2px ;
     scrollbar:    false;
     padding:      2px 0px 0px ;
+    lines:        10;
 }
 #element {
-    border:  0;
+    //border:  0;
     padding: 10px ;
     border-radius: 0;
+    text-color:       @foreground;
+    background-color: @transparent;
+    //background-color: #0000ff;
+
+    border: 0 0 1 0;
+    border-color: @cline;
+    //border-radius: 40;
 }
-#element-icon { size: 5.00ch; }
+#element-icon { size: 4.00ch; }
 #element-text { vertical-align: 0.5; }
 #element.normal.normal {
-    background-color: @background-color;
-    text-color:       @foreground;
+    background-color: @transparent;
+    //background-color: #00000099;
 }
 #element.normal.urgent {
     background-color: @urgent-background;
@@ -72,21 +89,20 @@ configuration {
 }
 #element.normal.active {
     /*background-color: @active-background;*/
+    background-color: @transparent;
     text-color:       @foreground;
 }
 #element.selected.normal {
     background-color: @cline;
-    text-color:       @foreground;
     border-color: @purple;
     border: 1;
+    border-radius: 3;
 }
 #element.selected.urgent {
     background-color: @selected-urgent-background;
-    text-color:       @foreground;
 }
 #element.selected.active {
     /*background-color: @selected-active-background;*/
-    text-color:       @foreground;
     border-color: @purple;
     border: 1;
 }
@@ -94,15 +110,17 @@ configuration {
 
 
 #element.alternate.normal {
-    background-color: @background-color;
+    background-color: #99000000;
     text-color:       @foreground;
 }
 #element.alternate.urgent {
     background-color: @urgent-background;
+    background-color: @urgent-background;
     text-color:       @foreground;
 }
 #element.alternate.active {
-    background-color: @active-background;
+    //background-color: @active-background;
+    background-color: @transparent;
     text-color:       @foreground;
 }
 #scrollbar {
@@ -138,6 +156,19 @@ configuration {
 }
 #inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    border-color: @bordercolor;
+    border: 1;
+
+    border-radius: 3;
+    padding: 10;
+    background-color: @bg-solid;
+    margin: 0 0 10 0;
+
+    // round input bar
+    background-color: @cline;
+    border-radius: 40;
+    border: 0;
+    padding: 10 10 10 20;
 }
 #textbox-prompt-colon {
     expand:     false;
@@ -146,6 +177,6 @@ configuration {
     text-color: @foreground;
 }
 element-text, element-icon {
-    background-color: inherit;
+    background-color: @transparent;
     text-color: inherit;
 }
