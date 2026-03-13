@@ -6,6 +6,8 @@ polybar-msg cmd quit
 # Otherwise you can use the nuclear option:
 # killall -q polybar
 
+#while pgrep -u $UID -x polybar >/dev/null; do sleep 0.2; done
+
 # Launch bar1 and bar2
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 polybar primary 2>&1 | tee -a /tmp/polybar1.log & disown

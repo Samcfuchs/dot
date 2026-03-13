@@ -14,7 +14,7 @@ PLAYER="playerctld"
 # Format of the information displayed
 # Eg. {{ artist }} - {{ album }} - {{ title }}
 # See more attributes here: https://github.com/altdesktop/playerctl/#printing-properties-and-metadata
-FORMAT="{{ trunc(title, 40) }} - {{ artist }}"
+FORMAT="{{ title }} - {{ artist }}"
 
 TEXT=""
 ICON="\uf144 " # Play symbol
@@ -63,20 +63,19 @@ if [ "$1" == "--status" ]; then
     echo "$STATUS"
 else
     if [ "$STATUS" = "Stopped" ]; then
-        #echo "No music is playing"
-        TEXT=$STATUS
+        echo "No music is playing"
     elif [ "$STATUS" = "Paused"  ]; then
         update_hooks "$PARENT_BAR_PID" 2
         TEXT=$(playerctl --player=$PLAYER metadata --format "$FORMAT")
     elif [ "$STATUS" = "No player is running"  ]; then
-        #echo "$STATUS"
-        TEXT=$STATUS
+        echo "$STATUS"
     else
         update_hooks "$PARENT_BAR_PID" 1
         TEXT=$(playerctl --player=$PLAYER metadata --format "$FORMAT")
     fi
-
-    ICON=$(get_icon "$(playerctl metadata --format='{{ lc(xesam:url) }} {{ lc(playerName) }}')")
-    echo -e $ICON "" $TEXT
 fi
+
+ICON=$(get_icon "$(playerctl metadata --format='{{ lc(xesam:url) }} {{ lc(playerName) }}')")
+
+echo -e $ICON "" $TEXT
 
