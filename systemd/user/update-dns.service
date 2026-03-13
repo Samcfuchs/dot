@@ -1,0 +1,6 @@
+[Unit]
+Description=Update Cloudflare DNS record with current public IP
+
+[Service]
+Type=oneshot
+ExecStart=%h/dot/bin/update_dns

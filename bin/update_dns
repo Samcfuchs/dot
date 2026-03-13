@@ -23,7 +23,7 @@ set_dns_record() {
   "content": "$public_ip",
   "name": "$subnet.$domain",
   "ttl": 3600,
-  "type": "A"
+  "type": "AAAA"
 }
 EOF
 jq
