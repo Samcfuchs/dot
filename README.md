@@ -148,7 +148,27 @@ preserve storage, but some cannot be avoided.
 - Obsidian
 - AppFlowy
 - LibreOffice
-- Bitwig Studio
+
+## Audio Stack
+
+My audio production setup seems to get more complicated all the time. I just
+added a bunch of parts.
+
+- [Bitwig Studio](https://www.bitwig.com/): Download as a Flatpak from their site
+- [Vital](https://account.vital.audio/): Available as a deb
+- Cardinal/VCVrack
+- Mixxx (Virtual DJ tool)
+- Surge XT (Hybrid synthesizer)
+- Rolling sampler
+- Helvum (GTK audio patchbay)
+- Protokol (MIDI/OSC monitor)
+- Open Stage Control
+- DrivenByMoss
+
+Today I connected a bunch of things together. Helvum connects audio output to
+the input of rolling sampler. DrivenByMoss has a script for OSC--once we start
+the OSC server, we can add a MIDI device with this script. When they communicate
+on the same port, outputs from OSC are connected to parameters in Bitwig.
 
 ## Apps that are just electron wrappers
 
