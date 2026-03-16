@@ -5,8 +5,9 @@ Wants=network-online.target
 
 [Service]
 Type=simple
+User=sam
 Environment=PATH=/home/sam/.nvm/versions/node/v22.22.1/bin:/usr/local/bin:/usr/bin:/bin
-ExecStart=%h/.nvm/versions/node/v22.22.1/bin/ob sync --continuous --path %h/obsidian/Vault
+ExecStart=/home/sam/.nvm/versions/node/v22.22.1/bin/ob sync --continuous --path /home/sam/obsidian/Vault
 Restart=on-failure
 RestartSec=10
 

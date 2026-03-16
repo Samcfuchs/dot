@@ -3,4 +3,8 @@ Description=Create my obsidian daily note with some custom behaviors
 
 [Service]
 Type=oneshot
+User=sam
 ExecStart=/home/sam/obsidian/automation/daily.py
+
+[Install]
+WantedBy=multi-user.target
