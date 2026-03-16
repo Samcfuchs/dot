@@ -1,0 +1,6 @@
+[Unit]
+Description=Create my obsidian daily note with some custom behaviors
+
+[Service]
+Type=oneshot
+ExecStart=/home/sam/obsidian/automation/daily.py

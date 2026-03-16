@@ -8,3 +8,4 @@ zsh/.zcompdump
 !nvim/init.vim
 
 systemd/**/*.wants
+**/__pycache__/*
