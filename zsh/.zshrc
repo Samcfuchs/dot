@@ -45,6 +45,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
+export EDITOR=$HOME/Apps/nvim-linux-x86_64.appimage
+
 # Thefuck
 #eval $(thefuck --alias)
 
