@@ -42,6 +42,13 @@ alias /="cd /"
 alias epoch="date -u +%s"
 alias fzf='fzf --border-label="fzf $(pwd)"'
 alias vf="vim \$(fzf)"
+#alias dps="docker ps --format  'table {{.Names}} [{{.Image}}]\t{{.State}} - ({{.Status}})'"
+alias dps="docker ps --format  'table {{.Names}}\t{{.State}} - ({{.Status}})\t{{.Networks}}'"
+
+dni() {
+  docker network inspect $1 | jq '.[0].Containers | [.[] | {name:.Name, ip:.IPv4Address, mac:.MacAddress}]' \
+  | jq -r '.[] | [.name, .ip, .mac] | @tsv' | column -t -C name='CONTAINER NAME' -C name="IP" -C name="MAC ADDRESS"
+}
 
 # Autocomplete vim keys
 autoload -U compinit
