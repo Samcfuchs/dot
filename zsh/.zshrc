@@ -14,11 +14,20 @@ export PROJECT_HOME=$HOME/Documents
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 #source $HOME/.local/bin/virtualenvwrapper.sh
 export FZF_DEFAULT_OPTS="--height=20 --border --layout=reverse"
+export zshrc=$HOME/.zshrc
+export caddyfile=$HOME/caddy/Caddyfile
 
 # Aliases
 take() {
   mkdir -p $1
   cd $1
+}
+
+# mvln ~/obsidian ~/dot/docker/obsidian
+mvln() {
+    cp $1 $2 -r
+    #mv $1 $1~
+    ln -svbnf $2 $1
 }
 
 alias nvim="~/Apps/nvim-linux-x86_64.appimage"
@@ -46,6 +55,9 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
 export EDITOR=$HOME/Apps/nvim-linux-x86_64.appimage
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
 # Thefuck
 #eval $(thefuck --alias)
