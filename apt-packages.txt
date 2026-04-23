@@ -5,6 +5,7 @@ jq
 ranger
 sqlite3
 fd-find
+ripgrep
 
 cmake
 neofetch

@@ -9,3 +9,7 @@ zsh/.zcompdump
 
 systemd/**/*.wants
 **/__pycache__/*
+
+./*~
+nvim~/
+kickstart.nvim/
