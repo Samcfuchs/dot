@@ -4,9 +4,9 @@ left_orientation=$1
 center_orientation=$2
 right_orientation=$3
 
-left_input_name="HDMI-0"
+left_input_name="HDMI-1"
 center_input_name="DP-0"
-right_input_name="HDMI-1"
+right_input_name="HDMI-0"
 
 get_width_from_orientation() {
     if [[ $1 == "left" || $1 == "right" ]]; then
