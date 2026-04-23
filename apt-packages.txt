@@ -4,6 +4,7 @@ fzf
 jq
 ranger
 sqlite3
+fd-find
 
 cmake
 neofetch
