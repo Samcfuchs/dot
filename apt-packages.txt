@@ -6,6 +6,7 @@ ranger
 sqlite3
 fd-find
 ripgrep
+bat
 
 cmake
 neofetch

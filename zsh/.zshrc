@@ -42,6 +42,7 @@ alias /="cd /"
 alias epoch="date -u +%s"
 alias fzf='fzf --border-label="fzf $(pwd)"'
 alias vf="vim \$(fzf)"
+alias bat=batcat
 #alias dps="docker ps --format  'table {{.Names}} [{{.Image}}]\t{{.State}} - ({{.Status}})'"
 alias dps="docker ps --format  'table {{.Names}}\t{{.State}} - ({{.Status}})\t{{.Networks}}'"
 
