@@ -68,7 +68,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # Thefuck
-#eval $(thefuck --alias)
+eval $(thefuck --alias)
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 #[[ ! -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] || source $XDG_CONFIG_HOME/zsh/.p10k.zsh

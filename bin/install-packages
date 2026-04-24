@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+# Install gitui from releases page
+wget -qO- "https://github.com/gitui-org/gitui/releases/download/v0.28.1/gitui-linux-x86_64.tar.gz" | tar xzvf - -C $HOME/.local/bin
+
+# Install neovim from appimage
+wget -qO- "https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage" -O $HOME/.local/bin/nvim

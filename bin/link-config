@@ -8,7 +8,7 @@ ln -svf --backup ~/dot/dunst ~/.config/dunst
 ln -svf --backup ~/dot/rofi ~/.config/rofi
 ln -svf --backup ~/dot/btop/btop.conf ~/.config/btop/btop.conf
 ln -svf --backup ~/dot/ranger ~/.config/ranger
+ln -svf --backup ~/dot/gitui ~/.config/gitui
 
 echo '[include]
-    path = ~/dot/git/config' > ~/.gitconfig
-
+    path = ~/dot/git/config' >~/.gitconfig
