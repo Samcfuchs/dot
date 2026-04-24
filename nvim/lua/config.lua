@@ -17,3 +17,12 @@ vim.diagnostic.config({ update_in_insert = false })
 vim.o.showmode = false
 vim.o.undofile = true
 vim.o.inccommand = "split"
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "TelescopeLoad",
+	once = true,
+	callback = function()
+		pcall(require("telescope").load_extension, "projects")
+		pcall(require("telescope").load_extension, "sessions-picker")
+	end,
+})

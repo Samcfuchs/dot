@@ -1,6 +1,15 @@
 return {
 
 	{
+		"ahmedkhalf/project.nvim",
+		lazy = false,
+		config = function()
+			require("project_nvim").setup({})
+		end,
+		--opts = { detection_methods = { "lsp", "pattern" }, },
+	},
+
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		--branch = "v3.x",
 		dependencies = {
@@ -134,7 +143,12 @@ return {
 			end, { desc = "[F]ormat buffer" })
 		end,
 	},
-	{ "folke/persistence.nvim" },
+	{
+		"folke/persistence.nvim",
+		event = "BufReadPre",
+		opts = {},
+		--config = function() end,
+	},
 
 	{
 		"folke/tokyonight.nvim",
@@ -214,15 +228,6 @@ return {
 
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
-		-- By default, Telescope is included and acts as your picker for everything.
-
-		-- If you would like to switch to a different picker (like snacks, or fzf-lua)
-		-- you can disable the Telescope plugin by setting enabled to false and enable
-		-- your replacement picker by requiring it explicitly (e.g. 'custom.plugins.snacks')
-
-		-- Note: If you customize your config for yourself,
-		-- it’s best to remove the Telescope plugin config entirely
-		-- instead of just disabling it here, to keep your config clean.
 		enabled = true,
 		event = "VimEnter",
 		dependencies = {
@@ -241,22 +246,10 @@ return {
 				end,
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-
-			-- Useful for getting pretty icons, but requires a Nerd Font.
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "JoseConseco/telescope_sessions_picker.nvim" },
 		},
 		config = function()
-			-- Telescope is a fuzzy finder that comes with a lot of different things that
-			-- it can fuzzy find! It's more than just a "file finder", it can search
-			-- many different aspects of Neovim, your workspace, LSP, and more!
-			--
-			-- The easiest way to use Telescope, is to start by doing something like:
-			--  :Telescope help_tags
-			--
-			-- After running this command, a window will open up and you're able to
-			-- type in the prompt window. You'll see a list of `help_tags` options and
-			-- a corresponding preview of the help.
-			--
 			-- Two important keymaps to use while in Telescope are:
 			--  - Insert mode: <c-/>
 			--  - Normal mode: ?
@@ -276,15 +269,20 @@ return {
 				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 				--   },
 				-- },
-				-- pickers = {}
+				pickers = {
+					find_files = { theme = "dropdown" },
+				},
 				extensions = {
 					["ui-select"] = { require("telescope.themes").get_dropdown() },
+					sessions_picker = { sessions_dir = "/home/sam/.local/state/nvim/sessions" },
 				},
 			})
 
 			-- Enable Telescope extensions if they are installed
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
+			pcall(require("telescope").load_extension, "projects")
+			pcall(require("telescope").load_extension, "sessions_picker")
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
@@ -397,6 +395,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"query",
+				"python",
 				"vim",
 				"vimdoc",
 			}
@@ -453,6 +452,76 @@ return {
 					end
 				end,
 			})
+		end,
+	},
+	{
+		"nvimdev/dashboard-nvim",
+		lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
+		opts = function()
+			local logo = [[
+         ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
+         ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
+         ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
+         ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+         ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
+         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
+    ]]
+
+			logo = string.rep("\n", 8) .. logo .. "\n\n"
+
+			local opts = {
+				theme = "doom",
+				hide = {
+					-- this is taken care of by lualine
+					-- enabling this messes up the actual laststatus setting after loading a file
+					statusline = false,
+				},
+				config = {
+					header = vim.split(logo, "\n"),
+        -- stylua: ignore
+        center = {
+          { action = 'Telescope find_files',                           desc = " Find File",       icon = " ", key = "f" },
+          { action = 'Telescope projects',                             desc = " Select Project",  icon = " ", key = "p" },
+          { action = "ene | startinsert",                              desc = " New File",        icon = " ", key = "n" },
+        --{ action = 'lua LazyVim.pick("oldfiles")()',                 desc = " Recent Files",    icon = " ", key = "r" },
+        --{ action = 'lua LazyVim.pick("live_grep")()',                desc = " Find Text",       icon = " ", key = "g" },
+        --{ action = 'lua LazyVim.pick("live_grep")()',                desc = " Find Text",       icon = " ", key = "g" },
+          { action = 'cd ~/dot/nvim',                                  desc = " Config",          icon = " ", key = "c" },
+          { action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ", key = "r" },
+          { action = 'lua require("persistence").select()',            desc = " Select Session",  icon = " ", key = "s" },
+        --{ action = "LazyExtras",                                     desc = " Lazy Extras",     icon = " ", key = "x" },
+          { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
+          { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ", key = "q" },
+        },
+					footer = function()
+						local stats = require("lazy").stats()
+						local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+						return {
+							"⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
+						}
+					end,
+				},
+			}
+
+			for _, button in ipairs(opts.config.center) do
+				button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+				button.key_format = "  %s"
+			end
+
+			-- open dashboard after closing lazy
+			if vim.o.filetype == "lazy" then
+				vim.api.nvim_create_autocmd("WinClosed", {
+					pattern = tostring(vim.api.nvim_get_current_win()),
+					once = true,
+					callback = function()
+						vim.schedule(function()
+							vim.api.nvim_exec_autocmds("UIEnter", { group = "dashboard" })
+						end)
+					end,
+				})
+			end
+
+			return opts
 		end,
 	},
 }
