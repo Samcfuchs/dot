@@ -8,7 +8,7 @@ subnet=lan
 public_ip=$( curl -s https://cloudflare.com/cdn-cgi/trace | grep ip= | sed s/ip=// );
 echo Public IP: $public_ip
 
-echo CLOUDFLARE_API_KEY: $CLOUDFLARE_API_KEY
+echo CLOUDFLARE_API_KEY: ${CLOUDFLARE_API_KEY:0:10}...
 
 set_dns_record() {
     # First argument should be the dns record id of the record to update

@@ -34,6 +34,7 @@ alias nvim="~/Apps/nvim-linux-x86_64.appimage"
 
 alias workoff=deactivate
 alias ls="ls --color=auto"
+alias ll="ls -l --color=auto"
 alias x=exit
 alias la="ls -lA --color=auto"
 alias ..="cd .."
